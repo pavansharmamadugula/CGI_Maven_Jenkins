@@ -15,6 +15,20 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<profiles>
+		<profile>
+			<id>test</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<!-- Optional URL to server. Default value is http://localhost:9000 -->
+				<sonar.host.url>
+					http://localhost:9110
+				</sonar.host.url>
+			</properties>
+		</profile>
+	</profiles>
 	<build>
 		<plugins>
 			<plugin>
@@ -36,6 +50,10 @@
 						<include>com/cgi/mypackage/*Test.java</include>
 					</includes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
